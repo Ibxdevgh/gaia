@@ -83,10 +83,7 @@
     <meta property="og:image" content="/images/seo/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
-    <meta
-      property="og:title"
-      content="GAIA"
-    />
+    <meta property="og:title" content="GAIA" />
     <!-- <meta
       property="og:description"
       content="We are a leading omnichannel brand activation agency helping brands get results by engaging with people in memorable experiences."
@@ -185,122 +182,129 @@
     </style>
 
     <script>
-class BubbleAnimation {
-  constructor() {
-    this.container = document.createElement('div');
-    this.container.className = 'bubble-container';
-    
-    this.image = document.createElement('div');
-    this.image.className = 'profile-image';
-    
-    // Create img element for SVG
-    const img = document.createElement('img');
-    img.src = '/images/profile-silhouette.svg';
-    img.alt = 'Profile Silhouette';
-    this.image.appendChild(img);
-    
-    this.container.appendChild(this.image);
-    
-    const mainBubble = document.querySelector('.gl-main-bubble');
-    mainBubble.innerHTML = ''; // Clear existing content
-    mainBubble.appendChild(this.container);
-    
-    this.setupEventListeners();
+      class BubbleAnimation {
+        constructor() {
+          this.container = document.createElement("div");
+          this.container.className = "bubble-container";
 
-    // Wait for preloader to finish
-    this.waitForPreloader();
-  }
+          this.image = document.createElement("div");
+          this.image.className = "profile-image";
 
-  async waitForPreloader() {
-    // Check if preloader exists and is visible
-    const preloader = document.querySelector('.preloader');
-    if (!preloader) {
-      this.show();
-      return;
-    }
+          // Create img element for SVG
+          const img = document.createElement("img");
+          img.src = "/images/profile-silhouette.svg";
+          img.alt = "Profile Silhouette";
+          this.image.appendChild(img);
 
-    // Create observer to watch preloader opacity
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-          const opacity = parseFloat(preloader.style.opacity);
-          if (opacity === 0) {
-            setTimeout(() => this.show(), 500); // Show after preloader fade
-            observer.disconnect();
+          this.container.appendChild(this.image);
+
+          const mainBubble = document.querySelector(".gl-main-bubble");
+          mainBubble.innerHTML = ""; // Clear existing content
+          mainBubble.appendChild(this.container);
+
+          this.setupEventListeners();
+
+          // Wait for preloader to finish
+          this.waitForPreloader();
+        }
+
+        async waitForPreloader() {
+          // Check if preloader exists and is visible
+          const preloader = document.querySelector(".preloader");
+          if (!preloader) {
+            this.show();
+            return;
+          }
+
+          // Create observer to watch preloader opacity
+          const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+              if (
+                mutation.type === "attributes" &&
+                mutation.attributeName === "style"
+              ) {
+                const opacity = parseFloat(preloader.style.opacity);
+                if (opacity === 0) {
+                  setTimeout(() => this.show(), 500); // Show after preloader fade
+                  observer.disconnect();
+                }
+              }
+            });
+          });
+
+          observer.observe(preloader, {
+            attributes: true,
+            attributeFilter: ["style"],
+          });
+        }
+
+        show() {
+          this.container.classList.add("visible");
+        }
+
+        hide() {
+          this.container.classList.remove("visible");
+        }
+
+        setupEventListeners() {
+          window.addEventListener("scroll", () => this.handleScroll());
+          document.addEventListener("mousemove", (e) =>
+            this.handleMouseMove(e)
+          );
+        }
+
+        handleScroll() {
+          const scrollPercent =
+            window.scrollY /
+            (document.documentElement.scrollHeight - window.innerHeight);
+          let scale = 1 - scrollPercent * 0.3;
+          const opacity = Math.max(0, 1 - scrollPercent * 1.5);
+
+          // Adjust scale based on screen size
+          if (window.innerWidth <= 768) {
+            scale = 0.8 - scrollPercent * 0.3;
+          }
+          if (window.innerWidth <= 480) {
+            scale = 0.7 - scrollPercent * 0.3;
+          }
+
+          this.container.style.transform = `translate(-50%, -50%) scale(${scale})`;
+          this.container.style.opacity = opacity;
+
+          if (opacity < 0.01) {
+            this.hide();
+          } else if (this.container.style.visibility !== "hidden") {
+            this.show();
           }
         }
-      });
-    });
 
-    observer.observe(preloader, {
-      attributes: true,
-      attributeFilter: ['style']
-    });
-  }
+        handleMouseMove(e) {
+          if (!this.container.classList.contains("visible")) return;
 
-  show() {
-    this.container.classList.add('visible');
-  }
+          const rect = this.container.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
 
-  hide() {
-    this.container.classList.remove('visible');
-  }
+          const deltaX = (e.clientX - centerX) / window.innerWidth;
+          const deltaY = (e.clientY - centerY) / window.innerHeight;
 
-  setupEventListeners() {
-    window.addEventListener('scroll', () => this.handleScroll());
-    document.addEventListener('mousemove', (e) => this.handleMouseMove(e));
-  }
+          const moveX = deltaX * 20;
+          const moveY = deltaY * 20;
 
-  handleScroll() {
-    const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-    let scale = 1 - (scrollPercent * 0.3);
-    const opacity = Math.max(0, 1 - (scrollPercent * 1.5));
-    
-    // Adjust scale based on screen size
-    if (window.innerWidth <= 768) {
-      scale = 0.8 - (scrollPercent * 0.3);
-    }
-    if (window.innerWidth <= 480) {
-      scale = 0.7 - (scrollPercent * 0.3);
-    }
-    
-    this.container.style.transform = `translate(-50%, -50%) scale(${scale})`;
-    this.container.style.opacity = opacity;
-    
-    if (opacity < 0.01) {
-      this.hide();
-    } else if (this.container.style.visibility !== 'hidden') {
-      this.show();
-    }
-  }
+          this.image.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
+        }
+      }
 
-  handleMouseMove(e) {
-    if (!this.container.classList.contains('visible')) return;
-    
-    const rect = this.container.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    
-    const deltaX = (e.clientX - centerX) / window.innerWidth;
-    const deltaY = (e.clientY - centerY) / window.innerHeight;
-    
-    const moveX = deltaX * 20;
-    const moveY = deltaY * 20;
-    
-    this.image.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
-  }
-
-
-}
-
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => new BubbleAnimation());
-} else {
-  new BubbleAnimation();
-}
+      // Initialize when DOM is ready
+      if (document.readyState === "loading") {
+        document.addEventListener(
+          "DOMContentLoaded",
+          () => new BubbleAnimation()
+        );
+      } else {
+        new BubbleAnimation();
+      }
     </script>
-
   </head>
 
   <body>
@@ -314,7 +318,10 @@ if (document.readyState === 'loading') {
     ></noscript>
 
     <div id="gl">
-      <div class="gl-main-bubble" style="width: 100vw; height: 100vh; opacity: 0;"></div>
+      <div
+        class="gl-main-bubble"
+        style="width: 100vw; height: 100vh; opacity: 0"
+      ></div>
       <div class="gl-image"></div>
       <div class="gl-landing-image"></div>
       <!-- Profile SVG integrated as WebGL texture -->
@@ -368,7 +375,12 @@ if (document.readyState === 'loading') {
         </div>
         <div class="header-logo">
           <a href="/" class="logo" aria-label="GAIA">
-            <img src="/images/gaia-logo.svg" alt="GAIA" width="120" height="20">
+            <img
+              src="/images/gaia-logo.svg"
+              alt="GAIA"
+              width="120"
+              height="20"
+            />
           </a>
         </div>
         <div class="header-nav">
@@ -499,8 +511,10 @@ if (document.readyState === 'loading') {
 
                       <div class="landing-intro-text">
                         <p class="ts-p" data-split-lines>
-                          We are a leading blockchain interaction platform helping users engage <br />
-                          with the Solana ecosystem through seamless, AI-powered chat<br />
+                          We are a leading blockchain interaction platform
+                          helping users engage <br />
+                          with the Solana ecosystem through seamless, AI-powered
+                          chat<br />
                           experiences. <a href="/vision">Read our vision.</a>
                         </p>
                       </div>
@@ -524,11 +538,18 @@ if (document.readyState === 'loading') {
                       <div class="ts-eyebrown">Trusted by</div>
                       <div class="landing-intro-clients-container">
                         <div class="landing-intro-client">
-                          <div class="landing-intro-client-inner" style="display: flex; justify-content: center; align-items: center;">
+                          <div
+                            class="landing-intro-client-inner"
+                            style="
+                              display: flex;
+                              justify-content: center;
+                              align-items: center;
+                            "
+                          >
                             <img
                               src="/images/logos/solana-sol-logo.svg"
                               alt="Logo solana-sol-logo.svg"
-                              style="width: 50%;"
+                              style="width: 50%"
                             />
                           </div>
                         </div>
@@ -538,8 +559,6 @@ if (document.readyState === 'loading') {
                 </div>
               </div>
             </div>
-
-
 
             <div data-scroll-item class="landing-vision">
               <div class="landing-vision-screen">
@@ -564,13 +583,19 @@ if (document.readyState === 'loading') {
                       <div class="col-span-4 col-start-7">
                         <div class="landing-vision-text">
                           <p class="ts-p-sm" data-split-lines>
-                            We make it personal. We inspire users to engage—and,  <br />
-                            importantly, to feel their time was well spent. Beyond<br />
-                            just delivering blockchain data, we refine the experience, <br />
-                            add intuitive simplicity, and transform complexity into dynamic,
+                            We make it personal. We inspire users to engage—and,
+                            <br />
+                            importantly, to feel their time was well spent.
+                            Beyond<br />
+                            just delivering blockchain data, we refine the
+                            experience, <br />
+                            add intuitive simplicity, and transform complexity
+                            into dynamic,
                             <em> AI-powered conversations.</em><br />
-                            Our goal? To spark trust and drive meaningful interactions. <br />
-                            Because while transactions can be automated, trust must be earned.<br />
+                            Our goal? To spark trust and drive meaningful
+                            interactions. <br />
+                            Because while transactions can be automated, trust
+                            must be earned.<br />
                           </p>
                         </div>
 
@@ -639,7 +664,6 @@ if (document.readyState === 'loading') {
                             >
                           </div>
                           <div class="footer-info-block"></div>
-
 
                           <div class="footer-info-block">
                             <div class="socials">
@@ -985,7 +1009,6 @@ if (document.readyState === 'loading') {
               </a>
             </li>
 
-
             <li class="menu-li">
               <a
                 class="menu-a"
@@ -1081,7 +1104,20 @@ if (document.readyState === 'loading') {
         <div class="preloader-icon-outer">
           <div class="preloader-icon-inner">
             <div class="preloader-icon-logo">
-              <img src="/images/profile-silhouette.svg" alt="GAIA" style="width: 60px; height: 60px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); mix-blend-mode: screen; opacity: 0.9;" />
+              <img
+                src="/images/profile-silhouette.svg"
+                alt="GAIA"
+                style="
+                  width: 60px;
+                  height: 60px;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  mix-blend-mode: screen;
+                  opacity: 0.9;
+                "
+              />
             </div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -1381,6 +1417,11 @@ if (document.readyState === 'loading') {
     ></script>
 
     <!-- Add SVG element here -->
-    <img id="profile-silhouette" src="/images/profile-silhouette.svg" alt="Profile Silhouette" style="display: none;">
+    <img
+      id="profile-silhouette"
+      src="/images/profile-silhouette.svg"
+      alt="Profile Silhouette"
+      style="display: none"
+    />
   </body>
 </html>
