@@ -43,7 +43,11 @@
 
     <meta name="msapplication-TileColor" content="#1e1e1e" />
     <meta name="theme-color" content="#000000" />
-    <link rel="icon" type="image/svg+xml" href="/images/profile-silhouette.svg">
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/images/profile-silhouette.svg"
+    />
     <title>Contact | GAIA</title>
 
     <meta property="og:image:width" content="1200" />
@@ -120,7 +124,12 @@
         </div>
         <div class="header-logo">
           <a href="/" class="logo" aria-label="GAIA">
-            <img src="/images/gaia-logo.svg" alt="GAIA" width="120" height="20">
+            <img
+              src="/images/gaia-logo.svg"
+              alt="GAIA"
+              width="120"
+              height="20"
+            />
           </a>
         </div>
         <div class="header-nav">
@@ -281,51 +290,97 @@
                           ><span>.</span><span></span>
                         </span>
                       </h1>
-                      <div
-                      >
-                        <a
-                          href="http://askgaia.app"
-                          class="button button--primary button button--md"
-                          data-router-ignore
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onclick="window.open('http://askgaia.app', '_blank'); return false;"
-                        >
-                          <span class="button-gradient"></span>
-                          <span class="button-bg"></span>
+                      <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+                        <div>
+                          <a
+                            href="http://askgaia.app"
+                            class="button button--primary button button--md"
+                            data-router-ignore
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onclick="window.open('http://askgaia.app', '_blank'); return false;"
+                          >
+                            <span class="button-gradient"></span>
+                            <span class="button-bg"></span>
 
-                          <span class="button-text">
-                            <span class="button-text-static"
-                              >Chat with GAIA</span
-                            >
-                            <span class="button-text-hover"
-                              >Chat with GAIA</span
-                            >
-                          </span>
+                            <span class="button-text">
+                              <span class="button-text-static"
+                                >Chat with GAIA</span
+                              >
+                              <span class="button-text-hover"
+                                >Chat with GAIA</span
+                              >
+                            </span>
 
-                          <span class="button-icon">
-                            <svg
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <circle
-                                cx="12"
-                                cy="12"
-                                r="12"
-                                fill="var(--button-icon-bg)"
-                              ></circle>
-                              <path
-                                d="M11 15L14 12L11 9"
-                                stroke="var(--button-icon-color)"
-                                stroke-width="1.5"
-                                stroke-linejoin="round"
-                              ></path>
-                            </svg>
-                          </span>
-                        </a>
+                            <span class="button-icon">
+                              <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="12"
+                                  cy="12"
+                                  r="12"
+                                  fill="var(--button-icon-bg)"
+                                ></circle>
+                                <path
+                                  d="M11 15L14 12L11 9"
+                                  stroke="var(--button-icon-color)"
+                                  stroke-width="1.5"
+                                  stroke-linejoin="round"
+                                ></path>
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
+                        <div>
+                          <a
+                            href="https://chromewebstore.google.com/detail/ask-gaia-chat/afebmagfbkjhjpgjohcgpplmnjlmpaam"
+                            class="button button--primary button button--md"
+                            data-router-ignore
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onclick="window.open('https://chromewebstore.google.com/detail/ask-gaia-chat/afebmagfbkjhjpgjohcgpplmnjlmpaam', '_blank'); return false;"
+                          >
+                            <span class="button-gradient"></span>
+                            <span class="button-bg"></span>
+
+                            <span class="button-text">
+                              <span class="button-text-static"
+                                >Download Extension</span
+                              >
+                              <span class="button-text-hover"
+                                >Download Extension</span
+                              >
+                            </span>
+
+                            <span class="button-icon">
+                              <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <circle
+                                  cx="12"
+                                  cy="12"
+                                  r="12"
+                                  fill="var(--button-icon-bg)"
+                                ></circle>
+                                <path
+                                  d="M11 15L14 12L11 9"
+                                  stroke="var(--button-icon-color)"
+                                  stroke-width="1.5"
+                                  stroke-linejoin="round"
+                                ></path>
+                              </svg>
+                            </span>
+                          </a>
+                        </div>
                       </div>
                     </div>
                     <div
@@ -1110,7 +1165,6 @@
               </a>
             </li>
 
-
             <li class="menu-li">
               <a
                 class="menu-a"
@@ -1206,47 +1260,151 @@
         <div class="preloader-icon-outer">
           <div class="preloader-icon-inner">
             <div class="preloader-icon-logo">
-              <img src="/images/profile-silhouette.svg" alt="GAIA" style="width: 60px; height: 60px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); mix-blend-mode: screen; opacity: 0.9;" />
+              <img
+                src="/images/profile-silhouette.svg"
+                alt="GAIA"
+                style="
+                  width: 60px;
+                  height: 60px;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  mix-blend-mode: screen;
+                  opacity: 0.9;
+                "
+              />
             </div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="266" height="266" viewBox="0 0 266 266" fill="none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="266"
+              height="266"
+              viewBox="0 0 266 266"
+              fill="none"
+            >
               <defs>
-                <filter id="filter0_f_821_1681" x="57" y="57" width="152" height="152" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-                  <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
-                  <feGaussianBlur stdDeviation="8" result="effect1_foregroundBlur_821_1681"></feGaussianBlur>
+                <filter
+                  id="filter0_f_821_1681"
+                  x="57"
+                  y="57"
+                  width="152"
+                  height="152"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feFlood
+                    flood-opacity="0"
+                    result="BackgroundImageFix"
+                  ></feFlood>
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="BackgroundImageFix"
+                    result="shape"
+                  ></feBlend>
+                  <feGaussianBlur
+                    stdDeviation="8"
+                    result="effect1_foregroundBlur_821_1681"
+                  ></feGaussianBlur>
                 </filter>
-                <filter id="filter1_f_821_1681" x="65" y="65" width="136" height="136" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-                  <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
-                  <feGaussianBlur stdDeviation="4" result="effect1_foregroundBlur_821_1681"></feGaussianBlur>
+                <filter
+                  id="filter1_f_821_1681"
+                  x="65"
+                  y="65"
+                  width="136"
+                  height="136"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feFlood
+                    flood-opacity="0"
+                    result="BackgroundImageFix"
+                  ></feFlood>
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="BackgroundImageFix"
+                    result="shape"
+                  ></feBlend>
+                  <feGaussianBlur
+                    stdDeviation="4"
+                    result="effect1_foregroundBlur_821_1681"
+                  ></feGaussianBlur>
                 </filter>
-                <filter id="filter2_f_821_1681" x="0.5" y="0.5" width="265" height="265" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                  <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
-                  <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
-                  <feGaussianBlur stdDeviation="32.5" result="effect1_foregroundBlur_821_1681"></feGaussianBlur>
+                <filter
+                  id="filter2_f_821_1681"
+                  x="0.5"
+                  y="0.5"
+                  width="265"
+                  height="265"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feFlood
+                    flood-opacity="0"
+                    result="BackgroundImageFix"
+                  ></feFlood>
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="BackgroundImageFix"
+                    result="shape"
+                  ></feBlend>
+                  <feGaussianBlur
+                    stdDeviation="32.5"
+                    result="effect1_foregroundBlur_821_1681"
+                  ></feGaussianBlur>
                 </filter>
-                <linearGradient id="paint0_linear_821_1681" x1="73" y1="73" x2="193" y2="73" gradientUnits="userSpaceOnUse">
+                <linearGradient
+                  id="paint0_linear_821_1681"
+                  x1="73"
+                  y1="73"
+                  x2="193"
+                  y2="73"
+                  gradientUnits="userSpaceOnUse"
+                >
                   <stop stop-color="#7672FF"></stop>
                   <stop offset="0.265625" stop-color="#BDB4F5"></stop>
                   <stop offset="0.515625" stop-color="#FCFEEA"></stop>
                   <stop offset="0.765625" stop-color="#00F0FF"></stop>
                   <stop offset="1" stop-color="#7672FF"></stop>
                 </linearGradient>
-                <linearGradient id="paint1_linear_821_1681" x1="73" y1="73" x2="193" y2="73" gradientUnits="userSpaceOnUse">
+                <linearGradient
+                  id="paint1_linear_821_1681"
+                  x1="73"
+                  y1="73"
+                  x2="193"
+                  y2="73"
+                  gradientUnits="userSpaceOnUse"
+                >
                   <stop stop-color="#7672FF"></stop>
                   <stop offset="0.265625" stop-color="#BDB4F5"></stop>
                   <stop offset="0.515625" stop-color="#FCFEEA"></stop>
                   <stop offset="0.765625" stop-color="#00F0FF"></stop>
                   <stop offset="1" stop-color="#7672FF"></stop>
                 </linearGradient>
-                <linearGradient id="paint2_linear_821_1681" x1="73" y1="73" x2="193" y2="73" gradientUnits="userSpaceOnUse">
+                <linearGradient
+                  id="paint2_linear_821_1681"
+                  x1="73"
+                  y1="73"
+                  x2="193"
+                  y2="73"
+                  gradientUnits="userSpaceOnUse"
+                >
                   <stop stop-color="#7672FF"></stop>
                   <stop offset="0.265625" stop-color="#BDB4F5"></stop>
                   <stop offset="0.515625" stop-color="#FCFEEA"></stop>
                   <stop offset="0.765625" stop-color="#00F0FF"></stop>
                   <stop offset="1" stop-color="#7672FF"></stop>
                 </linearGradient>
-                <linearGradient id="paint3_linear_821_1681" x1="73" y1="73" x2="193" y2="73" gradientUnits="userSpaceOnUse">
+                <linearGradient
+                  id="paint3_linear_821_1681"
+                  x1="73"
+                  y1="73"
+                  x2="193"
+                  y2="73"
+                  gradientUnits="userSpaceOnUse"
+                >
                   <stop stop-color="#7672FF"></stop>
                   <stop offset="0.265625" stop-color="#BDB4F5"></stop>
                   <stop offset="0.515625" stop-color="#FCFEEA"></stop>
@@ -1256,15 +1414,40 @@
               </defs>
               <g class="preloader-icon-circles-outer">
                 <g class="preloader-icon-circles-inner">
-                  <circle class="preloader-icon-circle" cx="133" cy="133" r="59.5" stroke="url(#paint0_linear_821_1681)"></circle>
+                  <circle
+                    class="preloader-icon-circle"
+                    cx="133"
+                    cy="133"
+                    r="59.5"
+                    stroke="url(#paint0_linear_821_1681)"
+                  ></circle>
                   <g filter="url(#filter0_f_821_1681)">
-                    <circle class="preloader-icon-circle" cx="133" cy="133" r="59.5" stroke="url(#paint1_linear_821_1681)"></circle>
+                    <circle
+                      class="preloader-icon-circle"
+                      cx="133"
+                      cy="133"
+                      r="59.5"
+                      stroke="url(#paint1_linear_821_1681)"
+                    ></circle>
                   </g>
                   <g filter="url(#filter1_f_821_1681)">
-                    <circle class="preloader-icon-circle" cx="133" cy="133" r="59.5" stroke="url(#paint2_linear_821_1681)"></circle>
+                    <circle
+                      class="preloader-icon-circle"
+                      cx="133"
+                      cy="133"
+                      r="59.5"
+                      stroke="url(#paint2_linear_821_1681)"
+                    ></circle>
                   </g>
                   <g filter="url(#filter2_f_821_1681)">
-                    <circle class="preloader-icon-circle" cx="133" cy="133" r="59.5" stroke="url(#paint3_linear_821_1681)" stroke-width="15"></circle>
+                    <circle
+                      class="preloader-icon-circle"
+                      cx="133"
+                      cy="133"
+                      r="59.5"
+                      stroke="url(#paint3_linear_821_1681)"
+                      stroke-width="15"
+                    ></circle>
                   </g>
                 </g>
               </g>
