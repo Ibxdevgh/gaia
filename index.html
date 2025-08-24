@@ -1518,8 +1518,8 @@
     const copyButton = document.querySelector('.copy-button');
     
     copyButton.addEventListener('click', function() {
-      // Copy text to clipboard
-      navigator.clipboard.writeText('CA: Coming Soon')
+      // Copy only "Coming Soon" to clipboard
+      navigator.clipboard.writeText('Coming Soon')
         .then(() => {
           // Visual feedback for successful copy
           copyButton.classList.add('copied');
