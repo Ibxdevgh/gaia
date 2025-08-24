@@ -181,13 +181,22 @@
         }
       }
 	  
-	  .ca-container {
+
+.ca-container {
   position: fixed;
   bottom: 30px;
   left: 80px;
   z-index: 999;
   display: flex;
   gap: 10px;
+  opacity: 0; /* Start hidden */
+  visibility: hidden; /* Start hidden */
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.ca-container.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .ca-coming-soon {
@@ -1516,6 +1525,14 @@
 	<script>
   document.addEventListener('DOMContentLoaded', function() {
     const copyButton = document.querySelector('.copy-button');
+    const caContainer = document.querySelector('.ca-container');
+    
+    // Show buttons after page is fully loaded
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        caContainer.classList.add('visible');
+      }, 500); // Small delay for smoother appearance
+    });
     
     copyButton.addEventListener('click', function() {
       // Copy only "Coming Soon" to clipboard
