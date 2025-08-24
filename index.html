@@ -1527,12 +1527,39 @@
     const copyButton = document.querySelector('.copy-button');
     const caContainer = document.querySelector('.ca-container');
     
-    // Show buttons after page is fully loaded
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        caContainer.classList.add('visible');
-      }, 500); // Small delay for smoother appearance
-    });
+    // Wait for preloader to finish
+    function waitForPreloader() {
+      const preloader = document.querySelector('.preloader');
+      if (!preloader) {
+        showButtons();
+        return;
+      }
+
+      // Create observer to watch preloader opacity
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+            const opacity = parseFloat(preloader.style.opacity);
+            if (opacity === 0) {
+              setTimeout(() => showButtons(), 500); // Show after preloader fade
+              observer.disconnect();
+            }
+          }
+        });
+      });
+
+      observer.observe(preloader, {
+        attributes: true,
+        attributeFilter: ['style']
+      });
+    }
+
+    function showButtons() {
+      caContainer.classList.add('visible');
+    }
+
+    // Start waiting for preloader
+    waitForPreloader();
     
     copyButton.addEventListener('click', function() {
       // Copy only "Coming Soon" to clipboard
